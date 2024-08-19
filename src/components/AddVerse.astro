@@ -1,0 +1,96 @@
+---
+
+---
+
+<div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Add New Verse Data</h2>
+    <form hx-post="/api/add-verse" hx-target="#form-response" class="space-y-4">
+        <div>
+            <label
+                for="hex_code"
+                class="block text-sm font-medium text-gray-700">Hex Code</label
+            >
+            <input
+                type="text"
+                id="hex_code"
+                name="hex_code"
+                required
+                pattern="[0-9A-Fa-f]{4}"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                placeholder="e.g., 0000"
+            />
+        </div>
+        <div>
+            <label
+                for="painting"
+                class="block text-sm font-medium text-gray-700">Painting</label
+            >
+            <input
+                type="text"
+                id="painting"
+                name="painting"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+        </div>
+        <div>
+            <label for="artist" class="block text-sm font-medium text-gray-700"
+                >Artist</label
+            >
+            <input
+                type="text"
+                id="artist"
+                name="artist"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+        </div>
+        <div>
+            <label
+                for="painting_url"
+                class="block text-sm font-medium text-gray-700"
+                >Painting URL</label
+            >
+            <input
+                type="url"
+                id="painting_url"
+                name="painting_url"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+        </div>
+        <div>
+            <label
+                for="locus_description"
+                class="block text-sm font-medium text-gray-700"
+                >Locus Description</label
+            >
+            <textarea
+                id="locus_description"
+                name="locus_description"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                rows="3"></textarea>
+        </div>
+        <div>
+            <label
+                for="half_verse_text"
+                class="block text-sm font-medium text-gray-700"
+                >Half Verse Text</label
+            >
+            <textarea
+                id="half_verse_text"
+                name="half_verse_text"
+                required
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                rows="3"></textarea>
+        </div>
+        <button
+            type="submit"
+            class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+            Submit
+        </button>
+    </form>
+    <div id="form-response" class="mt-4"></div>
+</div>

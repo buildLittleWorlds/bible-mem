@@ -1,0 +1,23 @@
+<script>
+    document.body.addEventListener("htmx:afterRequest", function (evt: Event) {
+        const formResponse = document.getElementById("form-response");
+        if (formResponse) {
+            const htmxEvent = evt as CustomEvent<{
+                successful: boolean;
+                elt: HTMLFormElement;
+                xhr: XMLHttpRequest;
+            }>;
+
+            if (htmxEvent.detail.successful) {
+                formResponse.innerHTML =
+                    '<div class="text-green-500 font-semibold">Data submitted successfully!</div>';
+                htmxEvent.detail.elt.reset(); // Reset the form
+            } else {
+                const error = htmxEvent.detail.xhr.response
+                    ? JSON.parse(htmxEvent.detail.xhr.response).error
+                    : "An error occurred";
+                formResponse.innerHTML = `<div class="text-red-500 font-semibold">Error: ${error}</div>`;
+            }
+        }
+    });
+</script>
